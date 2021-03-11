@@ -16,4 +16,8 @@ public class AirportService {
     public Optional<Airport> findByAirportIdent(String ident) {
         return airportDao.findByAirportIdent(ident);
     }
+
+    public Optional<Airport> findByIcaoIdent(String ident) {
+        return airportDao.findByIcaoIdent(ident);
+    }
 }

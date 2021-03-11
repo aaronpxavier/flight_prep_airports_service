@@ -22,7 +22,14 @@ public class AirportController {
     @GetMapping("/airport-ident/{ident}")
     public ResponseEntity<Airport> findByAiportIdent(@PathVariable String ident) {
         Optional<Airport> airport = airportService.findByAirportIdent(ident.toUpperCase());
-        System.out.println(ident);
+        if(!airport.isPresent())
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(airport.get());
+    }
+
+    @GetMapping("/icao-ident/{ident}")
+    public ResponseEntity<Airport> findByIcaoIdent(@PathVariable String ident) {
+        Optional<Airport> airport = airportService.findByIcaoIdent(ident.toUpperCase());
         if(!airport.isPresent())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         return ResponseEntity.status(HttpStatus.OK).body(airport.get());
