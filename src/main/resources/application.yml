@@ -7,9 +7,9 @@ spring:
   application:
     name: airports-service
   datasource:
-    url: ${SPRING_DB_URL}
-    username: ${SPRING_DB_UNAME}
-    password: ${SPRING_DB_PASS}
+    url: ${FLT_PREP_DB_URL}
+    username: ${FLT_PREP_DB_UNAME}
+    password: ${FLT_PREP_DB_PASS}
   jpa:
     hibernate:
       naming:
